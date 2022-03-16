@@ -5,6 +5,9 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <main>
+        {/* Add the contact cards here */}
+      </main>
     </div>
   );
 }
