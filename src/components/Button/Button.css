@@ -1,3 +1,19 @@
-.button {
-  margin: 1rem;
+button {
+  font-weight: bold;
+  overflow: hidden;
+  transition: background 400ms;
+  color: #000;
+  background-color: #64daec;
+  padding: 1em 2rem;
+  outline: 0;
+  border: 0;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.button-dark {
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  border: 1px solid #fff;
 }
