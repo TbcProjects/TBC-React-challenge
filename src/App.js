@@ -1,14 +1,20 @@
-import Header from './components/Header/Header';
-import './App.css';
+import Layout from "./components/Layout/Layout";
+import ContactView from "./components/ContactView/ContactView";
+import { ContextProvider } from "./contexts/ContextProvider";
+import { useContext } from "react";
+import { DataContext } from "./contexts/ContextProvider";
+import "./App.css";
 
 function App() {
+  const context = useContext(DataContext);
+  const { darkTheme } = context;
+
   return (
-    <div className="App">
-      <Header />
-      <main>
-        {/* Add the contact cards here */}
-      </main>
-    </div>
+    <ContextProvider>
+      <Layout>
+        <ContactView />
+      </Layout>
+    </ContextProvider>
   );
 }
 
