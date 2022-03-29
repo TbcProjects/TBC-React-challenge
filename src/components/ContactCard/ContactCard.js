@@ -1,32 +1,33 @@
 import React from "react";
 import "./ContactCard.css";
+import { useContext } from "react";
+import { DataContext } from "../../contexts/ContextProvider";
 
-const ContactCard = ({ data, img }) => {
-  console.log(data);
+const ContactCard = ({ data }) => {
+  const context = useContext(DataContext);
+  const { id, first_name, last_name, phone, profile_img } = data;
+  const { darkTheme, getModalContent, handleModal } = context;
+
+  if (!data) {
+    return null;
+  }
+
   return (
-    <>
-      <div className="card">
-        <img src={data[0].profile_img} alt="John" />
-        <h1>John Doe</h1>
-        <p className="title">CEO & Founder, Example</p>
-        <p>Harvard University</p>
-        <a href="/">
-          <i className="fa fa-dribbble"></i>
-        </a>
-        <a href="/">
-          <i className="fa fa-twitter"></i>
-        </a>
-        <a href="/">
-          <i className="fa fa-linkedin"></i>
-        </a>
-        <a href="/">
-          <i className="fa fa-facebook"></i>
-        </a>
-        <p>
-          <button className="btn">Contact</button>
-        </p>
+    <div
+      tabIndex={"1"}
+      className={`card ${darkTheme ? "card-dark" : ""}`}
+      onClick={e => {
+        handleModal();
+        getModalContent(id);
+      }}
+    >
+      <img src={profile_img} alt="John" />
+      <div className="card-content">
+        <p>{first_name}</p>
+        <p>{last_name}</p>
+        <p>{phone}</p>
       </div>
-    </>
+    </div>
   );
 };
 
