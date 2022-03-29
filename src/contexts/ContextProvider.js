@@ -37,13 +37,11 @@ export const ContextProvider = ({ children }) => {
   const handleSort = () => {
     setToggle(!toggle);
     setData([...toggleSort()]);
-    console.log(toggle);
   };
 
   //   dark theme switcher
   const handleTheme = () => {
     setDarkTheme(prevState => !prevState);
-    localStorage.setItem("dark", JSON.stringify(darkTheme));
   };
 
   const handleModal = () => {
