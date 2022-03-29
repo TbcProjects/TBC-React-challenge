@@ -29,9 +29,9 @@ const ContactCard = ({ data, variant }) => {
           variant === "modal" ? "card-content--modal" : ""
         } `}
       >
-        <p>{first_name}</p>
+        <p className="contact-first-name">{first_name}</p>
         <p>{last_name}</p>
-        <p>{phone}</p>
+        <p className="contact-phone">{phone}</p>
       </div>
     </div>
   );
