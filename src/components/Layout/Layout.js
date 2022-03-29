@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
     <>
       <Header />
       <main className={darkTheme ? "main-dark" : ""}>{children}</main>
-      <Modal open={isOpen}>{<ContactCard data={modalContent[0]} />}</Modal>
+      <Modal open={isOpen}>{<ContactCard data={modalContent[0]} variant={"modal"} />}</Modal>
     </>
   );
 };
