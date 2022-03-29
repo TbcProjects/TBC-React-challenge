@@ -1,12 +1,20 @@
-import React from 'react'
-import './Button.css'
+import React from "react";
+import "./Button.css";
+import { useContext } from "react";
+import { DataContext } from "../../contexts/ContextProvider";
 
-const Button = ({ buttonLabel }) => {
+const Button = ({ buttonLabel, handleClick }) => {
+  const context = useContext(DataContext);
+  const { darkTheme } = context;
+
   return (
-    <button className='button'>
+    <button
+      className={`button ${darkTheme ? "button-dark" : ""}`}
+      onClick={handleClick}
+    >
       {buttonLabel}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
