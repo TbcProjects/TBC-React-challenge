@@ -7,9 +7,20 @@
   padding: 1rem 3rem;
 }
 
+.app-header-dark{
+  background-color: #1e1e1e;
+}
+
 h1 {
   font-size: calc(10px + 2vmin);
   color: white;
   line-height: 1;
   margin: 0;
+}
+
+.button-group{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 250px;
 }

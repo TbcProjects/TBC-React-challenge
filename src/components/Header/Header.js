@@ -1,14 +1,29 @@
-import React from 'react'
-import './Header.css';
-import Button from '../Button/Button'
+import React from "react";
+import "./Header.css";
+import Button from "../Button/Button";
+import { useContext } from "react";
+import { DataContext } from "../../contexts/ContextProvider";
 
 const Header = () => {
-  return (
-    <header className="App-header">
-      <h1>My contacts book</h1>
-      <Button buttonLabel={'Sort A-Z'} />
-    </header>
-  )
-}
+  const context = useContext(DataContext);
+  const { darkTheme, toggle, isOpen, handleSort, handleTheme, handleModal } =
+    context;
 
-export default Header
+  return (
+    <header className={`App-header ${darkTheme ? "app-header-dark" : ""}`}>
+      <h1>My contacts book</h1>
+      <div className="button-group">
+        <Button
+          buttonLabel={darkTheme ? "Light" : "Dark"}
+          handleClick={handleTheme}
+        />
+        <Button
+          buttonLabel={toggle ? "Sort A-Z" : "Randomise"}
+          handleClick={handleSort}
+        />
+      </div>
+    </header>
+  );
+};
+
+export default Header;
